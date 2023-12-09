@@ -1,0 +1,37 @@
+[
+  {
+    "_id": "5a7b73c7e8c1b3e6d4c6e5a1",
+    "username": "Sakura",
+    "email": "sakura.miyawaki@example.com",
+    "password": "test123456",
+    "passwordConfirm": "test123456"
+  },
+  {
+    "_id": "5a7b73c7e8c1b3e6d4c6e5a2",
+    "username": "Chaewon",
+    "email": "chaewon.kim@example.com",
+    "password": "test123456",
+    "passwordConfirm": "test123456"
+  },
+  {
+    "_id": "5a7b73c7e8c1b3e6d4c6e5a3",
+    "username": "Yunjin",
+    "email": "yunjin.huh@example.com",
+    "password": "test123456",
+    "passwordConfirm": "test123456"
+  },
+  {
+    "_id": "5a7b73c7e8c1b3e6d4c6e5a4",
+    "username": "Kazuha",
+    "email": "kazuha.nakamura@example.com",
+    "password": "test123456",
+    "passwordConfirm": "test123456"
+  },
+  {
+    "_id": "5a7b73c7e8c1b3e6d4c6e5a5",
+    "username": "Eunchae",
+    "email": "eunchae.hong@example.com",
+    "password": "test123456",
+    "passwordConfirm": "test123456"
+  }
+]

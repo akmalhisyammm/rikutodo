@@ -1,0 +1,44 @@
+[
+  {
+    "_id": "6374709f57db60c6312dd7b0",
+    "title": "Wash the dishes",
+    "description": "Wash the dishes and put them in the dishwasher",
+    "isCompleted": false,
+    "user": "5a7b73c7e8c1b3e6d4c6e5a1"
+  },
+  {
+    "_id": "6374709f57db60c6312dd7b1",
+    "title": "Clean the house",
+    "description": "Clean the house until it's spotless",
+    "isCompleted": false,
+    "user": "5a7b73c7e8c1b3e6d4c6e5a1"
+  },
+  {
+    "_id": "6374709f57db60c6312dd7b2",
+    "title": "Do the laundry",
+    "description": "Do the laundry with the new washing machine",
+    "isCompleted": true,
+    "user": "5a7b73c7e8c1b3e6d4c6e5a2"
+  },
+  {
+    "_id": "6374709f57db60c6312dd7b3",
+    "title": "Buy groceries",
+    "description": "Buy groceries at the supermarket",
+    "isCompleted": false,
+    "user": "5a7b73c7e8c1b3e6d4c6e5a3"
+  },
+  {
+    "_id": "6374709f57db60c6312dd7b4",
+    "title": "Pay the bills",
+    "description": "Pay the bills to avoid late fees",
+    "isCompleted": true,
+    "user": "5a7b73c7e8c1b3e6d4c6e5a4"
+  },
+  {
+    "_id": "6374709f57db60c6312dd7b5",
+    "title": "Walk the dog",
+    "description": "Walk the dog in the park",
+    "isCompleted": true,
+    "user": "5a7b73c7e8c1b3e6d4c6e5a5"
+  }
+]
