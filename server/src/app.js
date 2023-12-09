@@ -15,6 +15,7 @@ const xss = require('xss-clean');
 
 // Routes imports
 const authRouter = require('./routes/authRoutes');
+const todoRouter = require('./routes/todoRoutes');
 const userRouter = require('./routes/userRoutes');
 
 // Utilities imports
@@ -73,6 +74,7 @@ app.use(compression());
 // Routes
 app.use('/api', limiter);
 app.use('/api/v1/auth', authRouter);
+app.use('/api/v1/todos', todoRouter);
 app.use('/api/v1/users', userRouter);
 
 // Define undefined routes
