@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const AppError = require('../utils/AppError');
+const AppError = require('../utils/appError');
 
 /**
  * This function is used to throw an error.

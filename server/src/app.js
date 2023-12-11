@@ -19,7 +19,7 @@ const todoRouter = require('./routes/todoRoutes');
 const userRouter = require('./routes/userRoutes');
 
 // Utilities imports
-const AppError = require('./utils/AppError');
+const AppError = require('./utils/appError');
 
 // Middleware imports
 const errorMiddleware = require('./middlewares/errorMiddleware');
