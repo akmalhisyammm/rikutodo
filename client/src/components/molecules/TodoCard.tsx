@@ -106,16 +106,27 @@ const TodoCard = ({ mode, data, isEditable, onUpdate, onDelete, onClose }: TodoC
     });
 
     toast.promise(response, {
-      loading: { title: 'Switching todo...' },
+      loading: {
+        title: 'Switching todo...',
+        styleConfig: {
+          bottom: 100,
+        },
+      },
       success: {
         title: `Todo switched to ${data.isCompleted ? 'uncompleted' : 'completed'}!`,
         description: 'You have successfully switched a todo.',
         duration: 2000,
+        styleConfig: {
+          bottom: 100,
+        },
       },
       error: {
         title: 'Failed to switch todo!',
         description: response.catch((err) => err.message),
         duration: 2000,
+        styleConfig: {
+          bottom: 100,
+        },
       },
     });
 

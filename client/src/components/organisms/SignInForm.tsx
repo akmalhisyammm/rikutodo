@@ -68,7 +68,7 @@ const SignInForm = () => {
       <VStack as="form" alignItems="stretch" width="full" gap={4} onSubmit={handleSubmit(onSignIn)}>
         <FormControl isInvalid={!!errors.username} isRequired>
           <FormLabel>Username</FormLabel>
-          <Input type="text" placeholder="Sakura48" {...register('username')} />
+          <Input type="text" placeholder="Rikud0u" {...register('username')} />
           {errors.username && <FormErrorMessage>{errors.username.message}</FormErrorMessage>}
         </FormControl>
 

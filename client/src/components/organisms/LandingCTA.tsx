@@ -9,20 +9,20 @@ const LandingCTA = () => {
   const router = useRouter();
 
   return (
-    <VStack justifyContent="center" paddingY={24} gap={4}>
+    <VStack justifyContent="center" textAlign="center" paddingY={32} gap={4}>
       <VStack>
         <HStack gap={4}>
-          <CustomHeading as="h1" size={['xl', '3xl', '3xl']} paddingBottom={2}>
+          <CustomHeading as="h1" size="3xl" paddingBottom={2}>
             Organize
           </CustomHeading>
-          <Heading as="h1" size={['xl', '3xl', '3xl']} paddingBottom={2}>
+          <Heading as="h1" size="3xl" paddingBottom={2}>
             your
           </Heading>
         </HStack>
-        <CustomHeading as="h1" size={['xl', '3xl', '3xl']} paddingBottom={2}>
+        <CustomHeading as="h1" size="3xl" paddingBottom={2}>
           daily tasks
         </CustomHeading>
-        <Text marginY={2}>
+        <Text marginY={4}>
           Keep track of your daily tasks and never forget to do anything again.
         </Text>
       </VStack>
