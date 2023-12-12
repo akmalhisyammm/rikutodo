@@ -64,7 +64,7 @@ const TodoList = () => {
     toast.promise(response, {
       loading: { title: 'Deleting todo...' },
       success: {
-        title: 'Todo deleted!',
+        title: 'Todo has been deleted!',
         description: 'You have successfully deleted a todo.',
         duration: 2000,
       },
@@ -125,7 +125,7 @@ const TodoList = () => {
                 ))
             ) : (
               <Text textAlign="center" paddingY={4}>
-                No uncompleted tasks found.
+                No uncompleted todos found.
               </Text>
             )}
 
@@ -193,7 +193,7 @@ const TodoList = () => {
                         />
                       ))
                   ) : (
-                    <Text textAlign="center">No completed tasks found.</Text>
+                    <Text textAlign="center">No completed todos found.</Text>
                   )}
                 </VStack>
               </Skeleton>
@@ -205,8 +205,8 @@ const TodoList = () => {
       <ConfirmationAlert
         title="Delete Todo"
         description="Are you sure you want to delete this todo?"
+        actionText="Delete"
         isOpen={!!deleteId}
-        isLoading={isLoading}
         onConfirm={onConfirmDeleteTodo}
         onClose={() => setDeleteId(null)}
       />

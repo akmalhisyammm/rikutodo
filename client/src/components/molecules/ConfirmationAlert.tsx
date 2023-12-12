@@ -14,8 +14,8 @@ import {
 type ConfirmationAlertProps = {
   title: string;
   description?: string;
+  actionText: string;
   isOpen: boolean;
-  isLoading?: boolean;
   onConfirm: () => void;
   onClose: () => void;
 };
@@ -23,8 +23,8 @@ type ConfirmationAlertProps = {
 const ConfirmationAlert = ({
   title,
   description,
+  actionText,
   isOpen,
-  isLoading,
   onConfirm,
   onClose,
 }: ConfirmationAlertProps) => {
@@ -39,20 +39,15 @@ const ConfirmationAlert = ({
       isCentered>
       <AlertDialogOverlay />
 
-      <AlertDialogContent>
+      <AlertDialogContent margin={4}>
         <AlertDialogHeader>{title}</AlertDialogHeader>
         <AlertDialogBody>{description}</AlertDialogBody>
         <AlertDialogFooter>
-          <Button ref={alertCancelRef} isDisabled={isLoading} onClick={onClose}>
+          <Button ref={alertCancelRef} onClick={onClose}>
             Cancel
           </Button>
-          <Button
-            colorScheme="red"
-            marginLeft={2}
-            loadingText="Deleting"
-            isLoading={isLoading}
-            onClick={onConfirm}>
-            Delete
+          <Button colorScheme="red" marginLeft={2} onClick={onConfirm}>
+            {actionText}
           </Button>
         </AlertDialogFooter>
       </AlertDialogContent>

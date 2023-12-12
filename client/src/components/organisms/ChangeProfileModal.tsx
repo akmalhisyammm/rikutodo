@@ -115,6 +115,7 @@ const ChangeProfileModal = ({ isOpen, onClose }: ChangeProfileModalProps) => {
           <Button
             type="submit"
             colorScheme="green"
+            loadingText="Saving"
             isLoading={isLoading || isSubmitting}
             isDisabled={!isDirty || !isValid}>
             Save Changes

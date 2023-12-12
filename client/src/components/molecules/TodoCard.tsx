@@ -57,8 +57,8 @@ const TodoCard = ({ mode, data, isEditable, onUpdate, onDelete, onClose }: TodoC
           await createTodo({ title: payload.title });
 
           toast({
-            title: 'Todo created!',
-            description: 'You have successfully created a todo.',
+            title: 'Todo has been created!',
+            description: 'You have successfully created a new todo.',
             status: 'success',
             duration: 2000,
           });
@@ -71,7 +71,7 @@ const TodoCard = ({ mode, data, isEditable, onUpdate, onDelete, onClose }: TodoC
           await updateTodo(data._id, { title: payload.title });
 
           toast({
-            title: 'Todo updated!',
+            title: 'Todo has been updated!',
             description: 'You have successfully updated a todo.',
             status: 'success',
             duration: 2000,
@@ -108,25 +108,18 @@ const TodoCard = ({ mode, data, isEditable, onUpdate, onDelete, onClose }: TodoC
     toast.promise(response, {
       loading: {
         title: 'Switching todo...',
-        styleConfig: {
-          bottom: 100,
-        },
       },
       success: {
-        title: `Todo switched to ${data.isCompleted ? 'uncompleted' : 'completed'}!`,
-        description: 'You have successfully switched a todo.',
+        title: 'Todo has been switched!',
+        description: `You have successfully switched a todo to ${
+          data.isCompleted ? 'uncompleted' : 'completed'
+        }.`,
         duration: 2000,
-        styleConfig: {
-          bottom: 100,
-        },
       },
       error: {
         title: 'Failed to switch todo!',
         description: response.catch((err) => err.message),
         duration: 2000,
-        styleConfig: {
-          bottom: 100,
-        },
       },
     });
 
@@ -190,7 +183,12 @@ const TodoCard = ({ mode, data, isEditable, onUpdate, onDelete, onClose }: TodoC
       borderRadius={6}
       onSubmit={handleSubmit(onSubmitTodo)}>
       <FormControl isInvalid={!!errors.title} isRequired>
-        <Input type="text" placeholder="Title" {...register('title')} />
+        <Input
+          type="text"
+          placeholder="Title"
+          isDisabled={isLoading || isSubmitting}
+          {...register('title')}
+        />
         {errors.title && <FormErrorMessage>{errors.title.message}</FormErrorMessage>}
       </FormControl>
       <HStack>
@@ -199,14 +197,14 @@ const TodoCard = ({ mode, data, isEditable, onUpdate, onDelete, onClose }: TodoC
           aria-label="Save todo"
           colorScheme="green"
           icon={<FaSave />}
-          isLoading={isSubmitting}
+          isLoading={isLoading || isSubmitting}
           isDisabled={!isDirty || !isValid}
         />
         <IconButton
           aria-label="Cancel todo"
           icon={<FaTimes />}
           onClick={onClose}
-          isDisabled={isSubmitting || isLoading}
+          isDisabled={isLoading || isSubmitting}
         />
       </HStack>
     </HStack>
