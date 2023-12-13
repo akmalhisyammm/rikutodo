@@ -40,7 +40,7 @@ const TodoCard = ({ mode, data, isEditable, onUpdate, onDelete, onClose }: TodoC
     handleSubmit,
     formState: { errors, isDirty, isSubmitting, isValid },
   } = useForm<InferType<typeof todoSchema>>({
-    mode: 'onBlur',
+    mode: 'onChange',
     defaultValues: {
       title: data?.title || '',
     },

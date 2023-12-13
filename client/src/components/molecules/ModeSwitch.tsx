@@ -8,22 +8,24 @@ type ModeSwitchProps = {
 
 const ModeSwitch = ({ isChecked, isDisabled, onSwitch }: ModeSwitchProps) => {
   return (
-    <HStack justifyContent="center" padding={2}>
+    <HStack justifyContent="center">
       <Text
         as="small"
-        fontWeight={isChecked ? 400 : 700}
+        fontWeight={isChecked ? 500 : 700}
         color={isChecked ? 'inherit' : 'green.400'}>
         Read-Only
       </Text>
       <Switch
         colorScheme="green"
+        paddingX={1}
+        paddingY={6}
         isChecked={isChecked}
         isDisabled={isDisabled}
         onChange={onSwitch}
       />
       <Text
         as="small"
-        fontWeight={isChecked ? 700 : 400}
+        fontWeight={isChecked ? 700 : 500}
         color={isChecked ? 'green.400' : 'inherit'}>
         CRUD
       </Text>

@@ -1,6 +1,6 @@
 import { APP_NAME, APP_URL } from '@/constants/meta';
 import { MainLayout } from '@/components/layouts';
-import { TodoFilter, TodoList, UserGreeting } from '@/components/organisms';
+import { TodoList, UserGreeting } from '@/components/organisms';
 
 import type { Metadata } from 'next';
 
@@ -19,7 +19,6 @@ const Todos = () => {
   return (
     <MainLayout>
       <UserGreeting />
-      <TodoFilter />
       <TodoList />
     </MainLayout>
   );

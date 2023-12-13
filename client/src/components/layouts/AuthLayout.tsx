@@ -17,7 +17,6 @@ const AuthLayout = ({ children }: AuthLayoutProps) => {
       backgroundColor={colorMode === 'light' ? 'gray.50' : 'gray.900'}>
       <Box
         as="main"
-        textAlign="center"
         width={['full', 400, 500]}
         paddingX={8}
         paddingY={10}

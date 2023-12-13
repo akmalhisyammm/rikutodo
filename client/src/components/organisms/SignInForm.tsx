@@ -28,7 +28,7 @@ const SignInForm = () => {
     handleSubmit,
     formState: { errors, isDirty, isSubmitting, isValid },
   } = useForm<InferType<typeof signInSchema>>({
-    mode: 'onBlur',
+    mode: 'onChange',
     defaultValues: {
       username: '',
       password: '',

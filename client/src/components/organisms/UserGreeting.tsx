@@ -11,7 +11,7 @@ const UserGreeting = () => {
   const { user } = useContext(UserContext);
 
   return (
-    <HStack paddingTop={2} paddingBottom={6} justifyContent="center" flexWrap="wrap">
+    <HStack paddingY={2} justifyContent="center" flexWrap="wrap">
       <Heading as="h1" size={['lg', 'xl', 'xl']}>
         {greetingByTime(user?.username || '')
           .split(' ')

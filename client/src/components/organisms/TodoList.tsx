@@ -8,31 +8,31 @@ import {
   AccordionPanel,
   Box,
   Button,
+  HStack,
+  IconButton,
   Skeleton,
   Text,
   VStack,
   useToast,
 } from '@chakra-ui/react';
-import { useRouter, useSearchParams } from 'next/navigation';
-import { FaChevronDown, FaPlus } from 'react-icons/fa';
+import { useRouter } from 'next/navigation';
+import { FaChevronDown, FaPlus, FaSortAmountDownAlt, FaSortAmountUp } from 'react-icons/fa';
 
 import { TodoContext } from '@/contexts/todo';
-import { ConfirmationAlert, ModeSwitch, TodoCard } from '@/components/molecules';
+import { ConfirmationAlert, ModeSwitch, SearchBar, TodoCard } from '@/components/molecules';
 
 const TodoList = () => {
   const [editId, setEditId] = useState<string | null>(null);
   const [deleteId, setDeleteId] = useState<string | null>(null);
   const [isAdding, setIsAdding] = useState<boolean>(false);
   const [isEditable, setIsEditable] = useState<boolean>(false);
+  const [isDescending, setIsDescending] = useState<boolean>(false);
+  const [searchKeyword, setSearchKeyword] = useState<string>('');
 
   const { todos, deleteTodo, isInitializing, isLoading } = useContext(TodoContext);
 
   const router = useRouter();
-  const searchParams = useSearchParams();
   const toast = useToast();
-
-  const keyword = searchParams.get('search') || '';
-  const sort = searchParams.get('sort') || '';
 
   const onBeforeCreateTodo = () => {
     setEditId(null);
@@ -95,22 +95,35 @@ const TodoList = () => {
     <Box>
       <ModeSwitch isChecked={isEditable} isDisabled={isLoading} onSwitch={onSwitchMode} />
 
-      <Box paddingY={4}>
+      <HStack>
+        <SearchBar
+          value={searchKeyword}
+          isDisabled={isLoading}
+          onChange={(e) => setSearchKeyword(e.target.value)}
+        />
+        <IconButton
+          aria-label="Sort todo"
+          icon={!isDescending ? <FaSortAmountDownAlt /> : <FaSortAmountUp />}
+          isDisabled={isLoading}
+          onClick={() => setIsDescending(!isDescending)}
+        />
+      </HStack>
+
+      <Box marginY={4}>
         <Skeleton borderRadius={6} isLoaded={!isInitializing}>
           <VStack alignItems="stretch" spacing={4} marginBottom={4} gap={2}>
             {todos.filter(
               (todo) =>
-                !todo.isCompleted && todo.title.toLowerCase().includes(keyword.toLowerCase()),
+                !todo.isCompleted && todo.title.toLowerCase().includes(searchKeyword.toLowerCase()),
             ).length ? (
               todos
                 .filter(
                   (todo) =>
-                    !todo.isCompleted && todo.title.toLowerCase().includes(keyword.toLowerCase()),
+                    !todo.isCompleted &&
+                    todo.title.toLowerCase().includes(searchKeyword.toLowerCase()),
                 )
                 .sort((a, b) =>
-                  !sort || sort === 'asc'
-                    ? a.title.localeCompare(b.title)
-                    : b.title.localeCompare(a.title),
+                  !isDescending ? a.title.localeCompare(b.title) : b.title.localeCompare(a.title),
                 )
                 .map((todo) => (
                   <TodoCard
@@ -156,7 +169,8 @@ const TodoList = () => {
                 {
                   todos.filter(
                     (todo) =>
-                      todo.isCompleted && todo.title.toLowerCase().includes(keyword.toLowerCase()),
+                      todo.isCompleted &&
+                      todo.title.toLowerCase().includes(searchKeyword.toLowerCase()),
                   ).length
                 }
                 )
@@ -168,16 +182,17 @@ const TodoList = () => {
                 <VStack alignItems="stretch" spacing={4} marginBottom={4} gap={2}>
                   {todos.filter(
                     (todo) =>
-                      todo.isCompleted && todo.title.toLowerCase().includes(keyword.toLowerCase()),
+                      todo.isCompleted &&
+                      todo.title.toLowerCase().includes(searchKeyword.toLowerCase()),
                   ).length ? (
                     todos
                       .filter(
                         (todo) =>
                           todo.isCompleted &&
-                          todo.title.toLowerCase().includes(keyword.toLowerCase()),
+                          todo.title.toLowerCase().includes(searchKeyword.toLowerCase()),
                       )
                       .sort((a, b) =>
-                        !sort || sort === 'asc'
+                        !isDescending
                           ? a.title.localeCompare(b.title)
                           : b.title.localeCompare(a.title),
                       )

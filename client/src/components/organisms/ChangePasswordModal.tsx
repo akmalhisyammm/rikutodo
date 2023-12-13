@@ -38,7 +38,7 @@ const ChangePasswordModal = ({ isOpen, onClose }: ChangePasswordModalProps) => {
     reset,
     formState: { errors, isDirty, isSubmitting, isValid },
   } = useForm<InferType<typeof changePasswordSchema>>({
-    mode: 'onBlur',
+    mode: 'onChange',
     defaultValues: {
       currentPassword: '',
       password: '',

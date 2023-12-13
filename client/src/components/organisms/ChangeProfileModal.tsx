@@ -38,7 +38,7 @@ const ChangeProfileModal = ({ isOpen, onClose }: ChangeProfileModalProps) => {
     reset,
     formState: { errors, isDirty, isSubmitting, isValid },
   } = useForm<InferType<typeof changeProfileSchema>>({
-    mode: 'onBlur',
+    mode: 'onChange',
     defaultValues: {
       username: user?.username || '',
       email: user?.email || '',

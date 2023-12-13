@@ -28,7 +28,7 @@ const SignUpForm = () => {
     handleSubmit,
     formState: { errors, isDirty, isSubmitting, isValid },
   } = useForm<InferType<typeof signUpSchema>>({
-    mode: 'onBlur',
+    mode: 'onChange',
     defaultValues: {
       username: '',
       email: '',
@@ -52,7 +52,7 @@ const SignUpForm = () => {
       loading: { title: 'Signing up...' },
       success: {
         title: 'Sign up success!',
-        description: 'You have successfully signed up.',
+        description: 'You have successfully signed up, please sign in to continue.',
         duration: 2000,
       },
       error: {
@@ -76,7 +76,7 @@ const SignUpForm = () => {
 
         <FormControl isInvalid={!!errors.email} isRequired>
           <FormLabel>Email</FormLabel>
-          <Input type="email" placeholder="hagoromo.otsutsuki@example.com" {...register('email')} />
+          <Input type="email" placeholder="hagoromo@example.com" {...register('email')} />
           {errors.email && <FormErrorMessage>{errors.email.message}</FormErrorMessage>}
         </FormControl>
 
