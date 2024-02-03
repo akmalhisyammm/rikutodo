@@ -1,7 +1,7 @@
-import { Flex, Link, Text } from '@chakra-ui/react';
-import NextLink from 'next/link';
+import { Button, Flex, Text } from '@chakra-ui/react';
+import { FaHome } from 'react-icons/fa';
 
-import { CustomHeading } from '@/components/atoms';
+import { BrandHeading, RouteLink } from '@/components/atoms';
 
 const NotFoundPage = () => {
   return (
@@ -13,13 +13,15 @@ const NotFoundPage = () => {
       height="100vh"
       gap={2}
       padding={4}>
-      <CustomHeading as="h2" size={['xl', '2xl']} padding={[0, 2]}>
+      <BrandHeading as="h2" size="2xl" padding={[0, 2]}>
         404 | Not Found
-      </CustomHeading>
-      <Text>This page does not exist.</Text>
-      <Link as={NextLink} href="/" textDecoration="underline" fontWeight={700} padding={8}>
-        Back to Home
-      </Link>
+      </BrandHeading>
+      <Text>Seems like you are lost.</Text>
+      <RouteLink href="/" marginY={8}>
+        <Button colorScheme="blue" size="lg" leftIcon={<FaHome />}>
+          Back to Home
+        </Button>
+      </RouteLink>
     </Flex>
   );
 };

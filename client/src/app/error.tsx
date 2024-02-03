@@ -1,9 +1,20 @@
 'use client';
 
+import { useEffect } from 'react';
+
 import { ErrorPage } from '@/components/templates';
 
-const Error = () => {
-  return <ErrorPage />;
+type ErrorProps = {
+  error: Error & { digest?: string };
+  reset: () => void;
+};
+
+const Error = ({ error, reset }: ErrorProps) => {
+  useEffect(() => {
+    console.error(error);
+  }, [error]);
+
+  return <ErrorPage onReset={reset} />;
 };
 
 export default Error;

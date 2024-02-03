@@ -1,6 +1,5 @@
 import { APP_NAME, APP_URL } from '@/constants/meta';
-import { MainLayout } from '@/components/layouts';
-import { TodoList, UserGreeting } from '@/components/organisms';
+import { HomePage } from '@/components/templates';
 
 import type { Metadata } from 'next';
 
@@ -15,13 +14,8 @@ export const metadata: Metadata = {
   },
 };
 
-const Todos = () => {
-  return (
-    <MainLayout>
-      <UserGreeting />
-      <TodoList />
-    </MainLayout>
-  );
+const Home = () => {
+  return <HomePage />;
 };
 
-export default Todos;
+export default Home;

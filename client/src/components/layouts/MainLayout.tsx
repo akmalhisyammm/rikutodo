@@ -2,8 +2,7 @@
 
 import { Box, Container, useColorMode } from '@chakra-ui/react';
 
-import Header from './Header';
-import Footer from './Footer';
+import { Footer, Header } from '@/components/organisms';
 
 type MainLayoutProps = {
   children: React.ReactNode;

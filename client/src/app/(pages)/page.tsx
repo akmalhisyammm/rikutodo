@@ -1,12 +1,7 @@
-import { MainLayout } from '@/components/layouts';
-import { LandingCTA } from '@/components/organisms';
+import { OnboardingPage } from '@/components/templates';
 
-const Home = () => {
-  return (
-    <MainLayout>
-      <LandingCTA />
-    </MainLayout>
-  );
+const Onboarding = () => {
+  return <OnboardingPage />;
 };
 
-export default Home;
+export default Onboarding;

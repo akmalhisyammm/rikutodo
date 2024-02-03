@@ -1,6 +1,5 @@
 import { APP_NAME, APP_URL } from '@/constants/meta';
-import { AuthLayout } from '@/components/layouts';
-import { SignUpForm } from '@/components/organisms';
+import { SignUpPage } from '@/components/templates';
 
 import type { Metadata } from 'next';
 
@@ -16,11 +15,7 @@ export const metadata: Metadata = {
 };
 
 const SignUp = () => {
-  return (
-    <AuthLayout>
-      <SignUpForm />
-    </AuthLayout>
-  );
+  return <SignUpPage />;
 };
 
 export default SignUp;

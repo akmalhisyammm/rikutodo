@@ -1,9 +1,13 @@
-import { Flex, Link, Text } from '@chakra-ui/react';
-import NextLink from 'next/link';
+import { Button, Flex, HStack, Text } from '@chakra-ui/react';
+import { FaHome, FaRedo } from 'react-icons/fa';
 
-import { CustomHeading } from '@/components/atoms';
+import { BrandHeading, RouteLink } from '@/components/atoms';
 
-const ErrorPage = () => {
+type ErrorPageProps = {
+  onReset: () => void;
+};
+
+const ErrorPage = ({ onReset }: ErrorPageProps) => {
   return (
     <Flex
       justifyContent="center"
@@ -13,13 +17,20 @@ const ErrorPage = () => {
       height="100vh"
       gap={2}
       padding={4}>
-      <CustomHeading as="h2" size={['xl', '2xl']} padding={[0, 2]}>
+      <BrandHeading as="h2" size="2xl" padding={[0, 2]}>
         500 | Error
-      </CustomHeading>
+      </BrandHeading>
       <Text>Something went wrong.</Text>
-      <Link as={NextLink} href="/" textDecoration="underline" fontWeight={700} padding={8}>
-        Back to Home
-      </Link>
+      <HStack marginY={8} gap={4}>
+        <Button colorScheme="red" size="lg" leftIcon={<FaRedo />} onClick={onReset}>
+          Try Again
+        </Button>
+        <RouteLink href="/">
+          <Button colorScheme="blue" size="lg" leftIcon={<FaHome />}>
+            Back to Home
+          </Button>
+        </RouteLink>
+      </HStack>
     </Flex>
   );
 };

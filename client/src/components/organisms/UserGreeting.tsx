@@ -4,8 +4,8 @@ import { useContext } from 'react';
 import { HStack, Heading } from '@chakra-ui/react';
 
 import { UserContext } from '@/contexts/user';
-import { CustomHeading } from '@/components/atoms';
-import { greetingByTime } from '@/utils/greeting';
+import { BrandHeading } from '@/components/atoms';
+import { greetingMessage } from '@/utils/greeting';
 
 const UserGreeting = () => {
   const { user } = useContext(UserContext);
@@ -13,16 +13,16 @@ const UserGreeting = () => {
   return (
     <HStack paddingY={2} justifyContent="center" flexWrap="wrap">
       <Heading as="h1" size={['lg', 'xl', 'xl']}>
-        {greetingByTime(user?.username || '')
+        {greetingMessage(user?.username || '')
           .split(' ')
           .slice(0, 2)
           .join(' ')}
       </Heading>
-      <CustomHeading as="h1" size={['lg', 'xl', 'xl']}>
-        {greetingByTime(user?.username || '').split(' ')[2]}
-      </CustomHeading>
+      <BrandHeading as="h1" size={['lg', 'xl', 'xl']}>
+        {greetingMessage(user?.username || '').split(' ')[2]}
+      </BrandHeading>
       <Heading as="h1" size={['lg', 'xl', 'xl']}>
-        {greetingByTime(user?.username || '').split(' ')[3]}
+        {greetingMessage(user?.username || '').split(' ')[3]}
       </Heading>
     </HStack>
   );

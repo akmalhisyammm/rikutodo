@@ -17,6 +17,7 @@ import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 
 import { UserContext } from '@/contexts/user';
+import { RouteLink } from '@/components/atoms';
 import { signInSchema } from '@/utils/schema';
 
 import type { InferType } from 'yup';
@@ -80,7 +81,7 @@ const SignInForm = () => {
 
         <Button
           type="submit"
-          colorScheme="blue"
+          colorScheme="green"
           loadingText="Signing In"
           isLoading={isLoading || isSubmitting}
           isDisabled={!isDirty || !isValid}>
@@ -90,9 +91,11 @@ const SignInForm = () => {
 
       <Text>
         Don&apos;t have an account?{' '}
-        <Button variant="link" colorScheme="blue" onClick={() => router.push('/auth/sign-up')}>
-          Sign Up
-        </Button>
+        <RouteLink href="/auth/sign-up">
+          <Button variant="link" colorScheme="blue">
+            Sign Up
+          </Button>
+        </RouteLink>
       </Text>
     </VStack>
   );

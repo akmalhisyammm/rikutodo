@@ -2,12 +2,12 @@
 
 import { Heading, useColorMode } from '@chakra-ui/react';
 
-type CustomHeadingProps = {
+type BrandHeadingProps = {
   children: React.ReactNode;
   [key: string]: unknown;
 };
 
-const CustomHeading = ({ children, ...rest }: CustomHeadingProps) => {
+const BrandHeading = ({ children, ...rest }: BrandHeadingProps) => {
   const { colorMode } = useColorMode();
 
   return (
@@ -24,4 +24,4 @@ const CustomHeading = ({ children, ...rest }: CustomHeadingProps) => {
   );
 };
 
-export default CustomHeading;
+export default BrandHeading;

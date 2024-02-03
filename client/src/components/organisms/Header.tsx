@@ -23,7 +23,7 @@ import { FaEdit, FaKey, FaSignOutAlt } from 'react-icons/fa';
 import { RiMoonFill, RiSunLine } from 'react-icons/ri';
 
 import { UserContext } from '@/contexts/user';
-import { CustomHeading } from '@/components/atoms';
+import { BrandHeading } from '@/components/atoms';
 import { ChangePasswordModal, ChangeProfileModal } from '@/components/organisms';
 
 const Header = () => {
@@ -71,9 +71,9 @@ const Header = () => {
           <HStack>
             <Image src="/icons/icon-512x512.png" alt="Logo" width={70} />
             <Box>
-              <CustomHeading as="h3" size="md">
+              <BrandHeading as="h3" size="md">
                 Rikutodo
-              </CustomHeading>
+              </BrandHeading>
               <Text as="small">Online Task Manager</Text>
             </Box>
           </HStack>
